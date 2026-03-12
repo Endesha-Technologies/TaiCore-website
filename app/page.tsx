@@ -28,7 +28,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A]">
+    <div className="min-h-screen bg-[#0F172A] text-white">
       {/* Enhanced Navbar */}
       <nav className="fixed top-0 w-full bg-[#0F172A]/80 backdrop-blur-md shadow-sm z-50 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -115,7 +115,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
             {/* Left Side - Content */}
             <div className="text-left space-y-8">
-              <h1 className="font-bold text-white leading-[1.15] py-6 md:py-8" style={{fontSize: 'clamp(1.75rem, 4.5vw, 3.5rem)'}}>
+              <h1 className="font-bold text-white leading-[1.2] py-6 md:py-8" style={{fontSize: 'clamp(1.25rem, 3.5vw, 2.5rem)'}}>
                 We Build Software That Launches, Scales, and Lasts.
               </h1>
               
@@ -173,7 +173,7 @@ export default function Home() {
               </div>
               
               {/* Bottom Text */}
-              <p className="text-gray-400 pt-6 pb-8 text-center font-semibold" style={{fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)'}}>
+              <p className="text-gray-400 pt-6 pb-8 text-left font-semibold" style={{fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)'}}>
                 Fixed-price contracts. Senior engineers on every project. No handoffs to juniors.
               </p>
             </div>
@@ -239,6 +239,19 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
+
+                {/* Floating Status Card */}
+                <div className="absolute -bottom-4 -right-4 bg-[#1E293B] border border-white/10 rounded-xl p-5 shadow-2xl backdrop-blur-sm" style={{
+                  boxShadow: '0 20px 40px -10px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.05)'
+                }}>
+                  <div className="flex items-center gap-3">
+                    <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse"></div>
+                    <div>
+                      <div className="text-white font-semibold text-sm">New Project</div>
+                      <div className="text-gray-400 text-xs">Kicked off today</div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -246,45 +259,98 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-6 bg-white">
+      <section id="about" className="py-20 px-6 bg-[#0d1b2a]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 text-[#1E40AF]">About Us</h2>
-          <p className="text-lg text-gray-700 text-center max-w-2xl mx-auto">Endesha Technologies delivers innovative solutions for digital transformation.</p>
+          <h2 className="text-4xl font-bold text-center mb-16 text-[#60A5FA]">About Us</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+            {/* Left Column - Description */}
+            <div className="space-y-6">
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Endesha Technologies is a software engineering firm founded to help startups and growing companies build reliable digital products. We specialize in full-stack web applications, mobile solutions, and AI integrations that scale from prototype to production.
+              </p>
+              <p className="text-lg text-gray-300 leading-relaxed">
+                Our team brings decades of combined experience from leading tech companies, and we apply that expertise to every project we take on. We don't just write code — we build systems that last.
+              </p>
+            </div>
+            
+            {/* Right Column - Value Props */}
+            <div className="space-y-8">
+              {/* Senior Engineers Only */}
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-[#3B82F6]/10 rounded-lg flex items-center justify-center border border-[#3B82F6]/20">
+                  <svg className="w-6 h-6 text-[#60A5FA]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">Senior Engineers Only</h3>
+                  <p className="text-gray-400">Every project is staffed with experienced engineers. No juniors, no handoffs, no surprises.</p>
+                </div>
+              </div>
+              
+              {/* Transparent Pricing */}
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-[#3B82F6]/10 rounded-lg flex items-center justify-center border border-[#3B82F6]/20">
+                  <svg className="w-6 h-6 text-[#60A5FA]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">Transparent Pricing</h3>
+                  <p className="text-gray-400">Fixed-price contracts with clear milestones. You know exactly what you're paying for.</p>
+                </div>
+              </div>
+              
+              {/* On-Time Delivery */}
+              <div className="flex items-start gap-4">
+                <div className="flex-shrink-0 w-12 h-12 bg-[#3B82F6]/10 rounded-lg flex items-center justify-center border border-[#3B82F6]/20">
+                  <svg className="w-6 h-6 text-[#60A5FA]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold text-white mb-2">On-Time Delivery</h3>
+                  <p className="text-gray-400">We ship on schedule. Our average MVP delivery is 8 weeks from kickoff to launch.</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Services Section */}
-      <section id="services" className="py-20 px-6">
+      <section id="services" className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 text-[#1E40AF]">Services</h2>
+          <h2 className="text-4xl font-bold text-center mb-12 text-[#60A5FA]">Services</h2>
         </div>
       </section>
 
       {/* Portfolio Section */}
-      <section id="portfolio" className="py-20 px-6 bg-white">
+      <section id="portfolio" className="py-20 px-6 bg-[#0d1b2a]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 text-[#1E40AF]">Portfolio</h2>
+          <h2 className="text-4xl font-bold text-center mb-12 text-[#60A5FA]">Portfolio</h2>
         </div>
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 px-6">
+      <section id="contact" className="py-20 px-6 bg-[#0a1628]">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-12 text-[#1E40AF]">Contact</h2>
-          <form className="bg-white p-8 rounded-lg shadow-lg space-y-6">
-            <input type="text" placeholder="Name" className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
-            <input type="email" placeholder="Email" className="w-full px-4 py-3 border border-gray-300 rounded-lg" />
-            <textarea placeholder="Message" rows={5} className="w-full px-4 py-3 border border-gray-300 rounded-lg"></textarea>
-            <button type="submit" className="w-full bg-[#3B82F6] text-white py-4 rounded-lg hover:bg-[#1E40AF]">Send</button>
+          <h2 className="text-4xl font-bold text-center mb-12 text-[#60A5FA]">Contact</h2>
+          <form className="bg-[#1E293B] p-8 rounded-lg shadow-lg space-y-6 border border-white/10">
+            <input type="text" placeholder="Name" className="w-full px-4 py-3 bg-[#0F172A] border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#3B82F6] transition-colors" />
+            <input type="email" placeholder="Email" className="w-full px-4 py-3 bg-[#0F172A] border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#3B82F6] transition-colors" />
+            <textarea placeholder="Message" rows={5} className="w-full px-4 py-3 bg-[#0F172A] border border-white/10 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-[#3B82F6] transition-colors"></textarea>
+            <button type="submit" className="w-full bg-[#3B82F6] text-white py-4 rounded-lg hover:bg-[#2563EB] transition-colors font-semibold shadow-lg shadow-blue-500/20">Send</button>
           </form>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-[#1E40AF] text-white py-12 px-6">
+      <footer className="bg-[#0F172A] text-white py-12 px-6 border-t border-white/10">
         <div className="max-w-7xl mx-auto text-center">
           <h3 className="text-2xl font-bold mb-4">Endesha Technologies</h3>
-          <p className="text-blue-200">© 2026 All rights reserved.</p>
+          <p className="text-gray-400">© 2026 All rights reserved.</p>
         </div>
       </footer>
     </div>
