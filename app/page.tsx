@@ -134,13 +134,6 @@ export default function Home() {
                 </a>
               </div>
               
-              {/* Technology Text Logos */}
-              <div className="pt-6">
-                <p className="text-white/60 font-medium tracking-wide" style={{fontSize: 'clamp(0.8rem, 1.5vw, 0.9rem)'}}>
-                  Built with <span className="text-white/70">React</span> · <span className="text-white/70">Flutter</span> · <span className="text-white/70">AWS</span> · <span className="text-white/70">OpenAI</span>
-                </p>
-              </div>
-              
               {/* Subtle Divider */}
               <div className="pt-8 pb-2">
                 <div className="w-full h-px bg-white/10"></div>
@@ -174,7 +167,7 @@ export default function Home() {
               
               {/* Bottom Text */}
               <p className="text-gray-400 pt-6 pb-8 text-left font-semibold" style={{fontSize: 'clamp(0.9rem, 1.5vw, 1.1rem)'}}>
-                Fixed-price contracts. Senior engineers on every project. No handoffs to juniors.
+                Built for clients. Open to collaborators. Delivered on time, every time.
               </p>
             </div>
 
@@ -261,7 +254,10 @@ export default function Home() {
       {/* About Section */}
       <section id="about" className="py-20 px-6 bg-[#0d1b2a]">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-16 text-[#60A5FA]">About Us</h2>
+          <h2 className="text-4xl font-bold text-center mb-4 text-[#60A5FA]">About Us</h2>
+          <p className="text-xl text-gray-400 text-center mb-16 font-medium">
+            Built for clients. Open to collaborators. Delivered on time, every time.
+          </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
             {/* Left Column - Description */}
