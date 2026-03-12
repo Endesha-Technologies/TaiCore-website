@@ -97,26 +97,17 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section - Improved with Animated Background */}
+      {/* Hero Section - Updated */}
       <section id="home" className="relative pt-40 pb-32 px-6 min-h-screen flex items-center overflow-hidden">
         {/* Animated Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50 to-purple-50">
-          {/* Animated Gradient Orbs */}
           <div className="absolute top-0 left-0 w-96 h-96 bg-[#3B82F6]/20 rounded-full blur-3xl animate-pulse"></div>
           <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#8B5CF6]/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
           <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-200/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
-          
-          {/* Grid Pattern Overlay */}
           <div className="absolute inset-0 opacity-[0.03]" style={{
             backgroundImage: `linear-gradient(#3B82F6 1px, transparent 1px), linear-gradient(90deg, #3B82F6 1px, transparent 1px)`,
             backgroundSize: '50px 50px'
           }}></div>
-          
-          {/* Floating Code Elements */}
-          <div className="absolute top-20 left-10 text-[#3B82F6]/10 font-mono text-2xl animate-float">&lt;/&gt;</div>
-          <div className="absolute top-40 right-20 text-[#8B5CF6]/10 font-mono text-3xl animate-float" style={{animationDelay: '0.5s'}}>{ }</div>
-          <div className="absolute bottom-40 left-20 text-[#3B82F6]/10 font-mono text-2xl animate-float" style={{animationDelay: '1s'}}>[ ]</div>
-          <div className="absolute bottom-20 right-40 text-[#8B5CF6]/10 font-mono text-3xl animate-float" style={{animationDelay: '1.5s'}}>( )</div>
         </div>
 
         {/* Content */}
@@ -124,122 +115,92 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-16 items-center">
             {/* Left Side - Content */}
             <div className="text-left space-y-8">
-              <div className="inline-block px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-sm">
-                <span className="text-[#3B82F6] font-semibold text-sm">🚀 Trusted by 500+ Companies</span>
-              </div>
-              
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#0F172A] leading-tight">
-                We Build Scalable Software for Modern Businesses
+                We Build Software That Launches, Scales, and Lasts.
               </h1>
               
               <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-xl">
-                We design and develop high-performance web applications, mobile apps, and AI solutions for startups and enterprises.
+                Endesha delivers full-stack web apps, mobile products, and AI integrations for startups and growing companies — from first prototype to production-grade scale.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-5 pt-4">
                 <a href="#contact" className="group bg-[#3B82F6] text-white px-10 py-5 rounded-xl hover:bg-[#1E40AF] transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-2xl hover:scale-105 transform text-center">
-                  Start a Project
+                  Book a Discovery Call
                   <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
                 </a>
                 <a href="#portfolio" className="group bg-white text-[#3B82F6] px-10 py-5 rounded-xl hover:bg-gray-50 transition-all duration-300 font-semibold text-lg border-2 border-[#3B82F6] hover:border-[#1E40AF] hover:shadow-lg text-center">
-                  View Our Work
+                  See Our Work
                   <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
                 </a>
               </div>
               
-              {/* Trust Indicators */}
+              {/* Technology Logos */}
+              <div className="flex items-center gap-8 pt-6 opacity-60 grayscale">
+                <div className="text-3xl">☁️</div>
+                <div className="text-3xl">⚛️</div>
+                <div className="text-3xl">📱</div>
+                <div className="text-3xl">🤖</div>
+              </div>
+              
+              {/* Stats */}
               <div className="flex items-center gap-10 flex-wrap pt-8">
                 <div>
                   <div className="text-4xl font-bold text-[#1E40AF]">500+</div>
-                  <div className="text-sm text-gray-600 mt-1">Projects Delivered</div>
+                  <div className="text-sm text-gray-600 mt-1">Products Shipped</div>
                 </div>
                 <div>
                   <div className="text-4xl font-bold text-[#1E40AF]">98%</div>
-                  <div className="text-sm text-gray-600 mt-1">Client Satisfaction</div>
+                  <div className="text-sm text-gray-600 mt-1">Client Retention</div>
                 </div>
                 <div>
-                  <div className="text-4xl font-bold text-[#1E40AF]">24/7</div>
-                  <div className="text-sm text-gray-600 mt-1">Support Available</div>
+                  <div className="text-4xl font-bold text-[#1E40AF]">8 Weeks</div>
+                  <div className="text-sm text-gray-600 mt-1">Average MVP Delivery</div>
                 </div>
               </div>
+              
+              {/* Testimonial */}
+              <div className="bg-white/80 backdrop-blur-sm p-6 rounded-xl border border-gray-200 shadow-sm">
+                <p className="text-gray-700 italic mb-4">
+                  "Our platform went from zero to 40,000 users in three months and the infrastructure never flinched."
+                </p>
+                <div className="text-sm">
+                  <span className="font-semibold text-[#0F172A]">Sarah K.</span>
+                  <span className="text-gray-600">, CTO, Launchpad Inc.</span>
+                </div>
+              </div>
+              
+              {/* Bottom Text */}
+              <p className="text-sm text-gray-500 pt-4">
+                Fixed-price contracts. Senior engineers on every project. No handoffs to juniors.
+              </p>
             </div>
 
-            {/* Right Side - Dashboard UI Preview & Tech Illustration */}
+            {/* Right Side - Product Screenshot */}
             <div className="relative hidden md:block">
-              <div className="relative w-full h-[550px]">
-                {/* Main Dashboard Preview Card */}
-                <div className="absolute top-0 left-0 right-0 w-full bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl p-6 transform hover:scale-105 transition-transform duration-300">
-                  {/* Dashboard Header */}
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-2">
+              <div className="relative w-full h-[600px]">
+                {/* Device Frame */}
+                <div className="absolute inset-0 bg-white/90 backdrop-blur-sm rounded-3xl shadow-2xl p-4 border-8 border-gray-800">
+                  {/* Browser Chrome */}
+                  <div className="flex items-center gap-2 mb-3 px-3 py-2 bg-gray-100 rounded-t-xl">
+                    <div className="flex gap-1.5">
                       <div className="w-3 h-3 rounded-full bg-red-400"></div>
                       <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
                       <div className="w-3 h-3 rounded-full bg-green-400"></div>
                     </div>
-                    <div className="text-xs text-gray-400">Dashboard Preview</div>
+                    <div className="flex-1 bg-white rounded px-3 py-1 text-xs text-gray-400">
+                      app.endesha.com
+                    </div>
                   </div>
                   
-                  {/* Dashboard Content */}
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between p-3 bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] rounded-lg text-white">
-                      <div>
-                        <div className="text-sm opacity-90">Total Revenue</div>
-                        <div className="text-2xl font-bold">$2.5M</div>
-                      </div>
-                      <div className="text-3xl">📈</div>
-                    </div>
-                    
-                    <div className="grid grid-cols-2 gap-3">
-                      <div className="p-3 bg-blue-50 rounded-lg">
-                        <div className="text-xs text-gray-600">Active Users</div>
-                        <div className="text-xl font-bold text-[#1E40AF]">12.5K</div>
-                      </div>
-                      <div className="p-3 bg-purple-50 rounded-lg">
-                        <div className="text-xs text-gray-600">Projects</div>
-                        <div className="text-xl font-bold text-[#8B5CF6]">248</div>
-                      </div>
-                    </div>
-                    
-                    {/* Progress Bars */}
-                    <div className="space-y-2">
-                      <div>
-                        <div className="flex justify-between text-xs mb-1">
-                          <span className="text-gray-600">Development</span>
-                          <span className="text-[#3B82F6] font-semibold">85%</span>
-                        </div>
-                        <div className="w-full bg-gray-200 rounded-full h-2">
-                          <div className="bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] h-2 rounded-full" style={{width: '85%'}}></div>
-                        </div>
-                      </div>
-                      <div>
-                        <div className="flex justify-between text-xs mb-1">
-                          <span className="text-gray-600">Testing</span>
-                          <span className="text-[#3B82F6] font-semibold">60%</span>
-                        </div>
-                        <div className="w-full bg-gray-200 rounded-full h-2">
-                          <div className="bg-gradient-to-r from-[#3B82F6] to-[#8B5CF6] h-2 rounded-full" style={{width: '60%'}}></div>
-                        </div>
-                      </div>
+                  {/* Screenshot Placeholder */}
+                  <div className="w-full h-full bg-gradient-to-br from-[#3B82F6] to-[#8B5CF6] rounded-lg flex items-center justify-center">
+                    <div className="text-center text-white p-8">
+                      <div className="text-6xl mb-4">📊</div>
+                      <div className="text-2xl font-bold mb-2">Product Screenshot</div>
+                      <div className="text-sm opacity-80">Dashboard / Analytics View</div>
                     </div>
                   </div>
                 </div>
-
-                {/* Floating Success Card */}
-                <div className="absolute bottom-0 right-0 w-56 bg-white/90 backdrop-blur-sm rounded-xl shadow-xl p-4 transform hover:scale-105 transition-transform duration-300">
-                  <div className="flex items-center gap-3">
-                    <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
-                      <span className="text-2xl">✓</span>
-                    </div>
-                    <div>
-                      <div className="font-bold text-[#0F172A] text-sm">Deployed</div>
-                      <div className="text-xs text-gray-500">Production ready</div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Code Brackets Decoration */}
-                <div className="absolute -top-4 -left-4 text-6xl text-[#3B82F6]/20 font-mono">&lt;</div>
-                <div className="absolute -bottom-4 -right-4 text-6xl text-[#8B5CF6]/20 font-mono">/&gt;</div>
               </div>
             </div>
           </div>
