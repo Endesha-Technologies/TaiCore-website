@@ -112,20 +112,6 @@ export default function Home() {
       <section id="services" className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12 text-[#1E40AF]">Services</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <h3 className="text-xl font-bold text-[#1E40AF] mb-3">Web Development</h3>
-              <p className="text-gray-600">Custom web applications</p>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <h3 className="text-xl font-bold text-[#1E40AF] mb-3">Mobile Apps</h3>
-              <p className="text-gray-600">iOS and Android solutions</p>
-            </div>
-            <div className="bg-white p-8 rounded-lg shadow-lg">
-              <h3 className="text-xl font-bold text-[#1E40AF] mb-3">Cloud Solutions</h3>
-              <p className="text-gray-600">Scalable infrastructure</p>
-            </div>
-          </div>
         </div>
       </section>
 
@@ -133,20 +119,6 @@ export default function Home() {
       <section id="portfolio" className="py-20 px-6 bg-white">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-bold text-center mb-12 text-[#1E40AF]">Portfolio</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-[#F8FAFC] p-6 rounded-lg">
-              <div className="bg-gradient-to-br from-[#3B82F6] to-[#8B5CF6] h-40 rounded-lg mb-4"></div>
-              <h3 className="text-xl font-bold text-[#1E40AF]">E-Commerce</h3>
-            </div>
-            <div className="bg-[#F8FAFC] p-6 rounded-lg">
-              <div className="bg-gradient-to-br from-[#3B82F6] to-[#8B5CF6] h-40 rounded-lg mb-4"></div>
-              <h3 className="text-xl font-bold text-[#1E40AF]">Healthcare</h3>
-            </div>
-            <div className="bg-[#F8FAFC] p-6 rounded-lg">
-              <div className="bg-gradient-to-br from-[#3B82F6] to-[#8B5CF6] h-40 rounded-lg mb-4"></div>
-              <h3 className="text-xl font-bold text-[#1E40AF]">Finance</h3>
-            </div>
-          </div>
         </div>
       </section>
 
