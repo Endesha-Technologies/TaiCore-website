@@ -97,13 +97,34 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section - Improved with Better Spacing */}
-      <section id="home" className="pt-40 pb-32 px-6 min-h-screen flex items-center bg-gradient-to-b from-white to-[#F8FAFC]">
-        <div className="max-w-7xl mx-auto w-full">
+      {/* Hero Section - Improved with Animated Background */}
+      <section id="home" className="relative pt-40 pb-32 px-6 min-h-screen flex items-center overflow-hidden">
+        {/* Animated Background */}
+        <div className="absolute inset-0 bg-gradient-to-br from-white via-blue-50 to-purple-50">
+          {/* Animated Gradient Orbs */}
+          <div className="absolute top-0 left-0 w-96 h-96 bg-[#3B82F6]/20 rounded-full blur-3xl animate-pulse"></div>
+          <div className="absolute bottom-0 right-0 w-96 h-96 bg-[#8B5CF6]/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-200/10 rounded-full blur-3xl animate-pulse" style={{animationDelay: '2s'}}></div>
+          
+          {/* Grid Pattern Overlay */}
+          <div className="absolute inset-0 opacity-[0.03]" style={{
+            backgroundImage: `linear-gradient(#3B82F6 1px, transparent 1px), linear-gradient(90deg, #3B82F6 1px, transparent 1px)`,
+            backgroundSize: '50px 50px'
+          }}></div>
+          
+          {/* Floating Code Elements */}
+          <div className="absolute top-20 left-10 text-[#3B82F6]/10 font-mono text-2xl animate-float">&lt;/&gt;</div>
+          <div className="absolute top-40 right-20 text-[#8B5CF6]/10 font-mono text-3xl animate-float" style={{animationDelay: '0.5s'}}>{ }</div>
+          <div className="absolute bottom-40 left-20 text-[#3B82F6]/10 font-mono text-2xl animate-float" style={{animationDelay: '1s'}}>[ ]</div>
+          <div className="absolute bottom-20 right-40 text-[#8B5CF6]/10 font-mono text-3xl animate-float" style={{animationDelay: '1.5s'}}>( )</div>
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 max-w-7xl mx-auto w-full">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             {/* Left Side - Content */}
             <div className="text-left space-y-8">
-              <div className="inline-block px-4 py-2 bg-blue-50 rounded-full">
+              <div className="inline-block px-4 py-2 bg-white/80 backdrop-blur-sm rounded-full shadow-sm">
                 <span className="text-[#3B82F6] font-semibold text-sm">🚀 Trusted by 500+ Companies</span>
               </div>
               
@@ -147,7 +168,7 @@ export default function Home() {
             <div className="relative hidden md:block">
               <div className="relative w-full h-[550px]">
                 {/* Main Dashboard Preview Card */}
-                <div className="absolute top-0 left-0 right-0 w-full bg-white rounded-2xl shadow-2xl p-6 transform hover:scale-105 transition-transform duration-300">
+                <div className="absolute top-0 left-0 right-0 w-full bg-white/90 backdrop-blur-sm rounded-2xl shadow-2xl p-6 transform hover:scale-105 transition-transform duration-300">
                   {/* Dashboard Header */}
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2">
@@ -204,7 +225,7 @@ export default function Home() {
                 </div>
 
                 {/* Floating Success Card */}
-                <div className="absolute bottom-0 right-0 w-56 bg-white rounded-xl shadow-xl p-4 transform hover:scale-105 transition-transform duration-300">
+                <div className="absolute bottom-0 right-0 w-56 bg-white/90 backdrop-blur-sm rounded-xl shadow-xl p-4 transform hover:scale-105 transition-transform duration-300">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
                       <span className="text-2xl">✓</span>
@@ -216,10 +237,6 @@ export default function Home() {
                   </div>
                 </div>
 
-                {/* Abstract Tech Elements */}
-                <div className="absolute top-32 -left-8 w-32 h-32 bg-[#8B5CF6]/10 rounded-full blur-3xl"></div>
-                <div className="absolute bottom-20 -right-8 w-32 h-32 bg-[#3B82F6]/10 rounded-full blur-3xl"></div>
-                
                 {/* Code Brackets Decoration */}
                 <div className="absolute -top-4 -left-4 text-6xl text-[#3B82F6]/20 font-mono">&lt;</div>
                 <div className="absolute -bottom-4 -right-4 text-6xl text-[#8B5CF6]/20 font-mono">/&gt;</div>
