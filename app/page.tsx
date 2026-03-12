@@ -1,4 +1,32 @@
+"use client";
+
+import { useState, useEffect } from "react";
+
 export default function Home() {
+  const [activeSection, setActiveSection] = useState("home");
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = ["home", "about", "services", "portfolio", "contact"];
+      const scrollPosition = window.scrollY + 100;
+
+      for (const section of sections) {
+        const element = document.getElementById(section);
+        if (element) {
+          const offsetTop = element.offsetTop;
+          const offsetHeight = element.offsetHeight;
+          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+            setActiveSection(section);
+            break;
+          }
+        }
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-[#0F172A]">
       {/* Enhanced Navbar */}
@@ -14,10 +42,54 @@ export default function Home() {
           
           {/* Navigation Links */}
           <div className="hidden md:flex items-center gap-8">
-            <a href="#home" className="text-gray-700 hover:text-[#3B82F6] transition-colors font-medium">Home</a>
-            <a href="#about" className="text-gray-700 hover:text-[#3B82F6] transition-colors font-medium">About</a>
-            <a href="#services" className="text-gray-700 hover:text-[#3B82F6] transition-colors font-medium">Services</a>
-            <a href="#portfolio" className="text-gray-700 hover:text-[#3B82F6] transition-colors font-medium">Portfolio</a>
+            <a 
+              href="#home" 
+              onClick={() => setActiveSection("home")}
+              className={`relative hover:text-[#3B82F6] transition-colors font-medium ${
+                activeSection === "home" ? "text-[#3B82F6]" : "text-gray-700"
+              }`}
+            >
+              Home
+              {activeSection === "home" && (
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#3B82F6]"></span>
+              )}
+            </a>
+            <a 
+              href="#about" 
+              onClick={() => setActiveSection("about")}
+              className={`relative hover:text-[#3B82F6] transition-colors font-medium ${
+                activeSection === "about" ? "text-[#3B82F6]" : "text-gray-700"
+              }`}
+            >
+              About
+              {activeSection === "about" && (
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#3B82F6]"></span>
+              )}
+            </a>
+            <a 
+              href="#services" 
+              onClick={() => setActiveSection("services")}
+              className={`relative hover:text-[#3B82F6] transition-colors font-medium ${
+                activeSection === "services" ? "text-[#3B82F6]" : "text-gray-700"
+              }`}
+            >
+              Services
+              {activeSection === "services" && (
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#3B82F6]"></span>
+              )}
+            </a>
+            <a 
+              href="#portfolio" 
+              onClick={() => setActiveSection("portfolio")}
+              className={`relative hover:text-[#3B82F6] transition-colors font-medium ${
+                activeSection === "portfolio" ? "text-[#3B82F6]" : "text-gray-700"
+              }`}
+            >
+              Portfolio
+              {activeSection === "portfolio" && (
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#3B82F6]"></span>
+              )}
+            </a>
             <a href="#contact" className="bg-[#3B82F6] text-white px-6 py-2.5 rounded-lg hover:bg-[#1E40AF] transition-colors font-semibold shadow-md hover:shadow-lg">
               Get Started
             </a>
@@ -25,52 +97,57 @@ export default function Home() {
         </div>
       </nav>
 
-      {/* Hero Section - Improved */}
-      <section id="home" className="pt-32 pb-24 px-6 min-h-screen flex items-center bg-gradient-to-b from-white to-[#F8FAFC]">
+      {/* Hero Section - Improved with Better Spacing */}
+      <section id="home" className="pt-40 pb-32 px-6 min-h-screen flex items-center bg-gradient-to-b from-white to-[#F8FAFC]">
         <div className="max-w-7xl mx-auto w-full">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
             {/* Left Side - Content */}
-            <div className="text-left">
-              <div className="inline-block mb-4 px-4 py-2 bg-blue-50 rounded-full">
+            <div className="text-left space-y-8">
+              <div className="inline-block px-4 py-2 bg-blue-50 rounded-full">
                 <span className="text-[#3B82F6] font-semibold text-sm">🚀 Trusted by 500+ Companies</span>
               </div>
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-[#0F172A] leading-tight">
+              
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-[#0F172A] leading-tight">
                 We Build Scalable Software for Modern Businesses
               </h1>
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed max-w-xl">
+              
+              <p className="text-xl md:text-2xl text-gray-600 leading-relaxed max-w-xl">
                 We design and develop high-performance web applications, mobile apps, and AI solutions for startups and enterprises.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a href="#contact" className="bg-[#3B82F6] text-white px-8 py-4 rounded-lg hover:bg-[#1E40AF] transition-all font-semibold text-lg shadow-lg hover:shadow-xl hover:scale-105 transform text-center">
+              
+              <div className="flex flex-col sm:flex-row gap-5 pt-4">
+                <a href="#contact" className="group bg-[#3B82F6] text-white px-10 py-5 rounded-xl hover:bg-[#1E40AF] transition-all duration-300 font-semibold text-lg shadow-lg hover:shadow-2xl hover:scale-105 transform text-center">
                   Start a Project
+                  <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
                 </a>
-                <a href="#portfolio" className="bg-white text-[#3B82F6] px-8 py-4 rounded-lg hover:bg-gray-50 transition-all font-semibold text-lg border-2 border-[#3B82F6] text-center">
+                <a href="#portfolio" className="group bg-white text-[#3B82F6] px-10 py-5 rounded-xl hover:bg-gray-50 transition-all duration-300 font-semibold text-lg border-2 border-[#3B82F6] hover:border-[#1E40AF] hover:shadow-lg text-center">
                   View Our Work
+                  <span className="inline-block ml-2 group-hover:translate-x-1 transition-transform">→</span>
                 </a>
               </div>
               
               {/* Trust Indicators */}
-              <div className="mt-12 flex items-center gap-8 flex-wrap">
+              <div className="flex items-center gap-10 flex-wrap pt-8">
                 <div>
-                  <div className="text-3xl font-bold text-[#1E40AF]">500+</div>
-                  <div className="text-sm text-gray-600">Projects Delivered</div>
+                  <div className="text-4xl font-bold text-[#1E40AF]">500+</div>
+                  <div className="text-sm text-gray-600 mt-1">Projects Delivered</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-[#1E40AF]">98%</div>
-                  <div className="text-sm text-gray-600">Client Satisfaction</div>
+                  <div className="text-4xl font-bold text-[#1E40AF]">98%</div>
+                  <div className="text-sm text-gray-600 mt-1">Client Satisfaction</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold text-[#1E40AF]">24/7</div>
-                  <div className="text-sm text-gray-600">Support Available</div>
+                  <div className="text-4xl font-bold text-[#1E40AF]">24/7</div>
+                  <div className="text-sm text-gray-600 mt-1">Support Available</div>
                 </div>
               </div>
             </div>
 
             {/* Right Side - Dashboard UI Preview & Tech Illustration */}
             <div className="relative hidden md:block">
-              <div className="relative w-full h-[500px]">
+              <div className="relative w-full h-[550px]">
                 {/* Main Dashboard Preview Card */}
-                <div className="absolute top-0 left-0 right-0 w-full bg-white rounded-2xl shadow-2xl p-6 transform hover:scale-105 transition-transform">
+                <div className="absolute top-0 left-0 right-0 w-full bg-white rounded-2xl shadow-2xl p-6 transform hover:scale-105 transition-transform duration-300">
                   {/* Dashboard Header */}
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-2">
@@ -127,7 +204,7 @@ export default function Home() {
                 </div>
 
                 {/* Floating Success Card */}
-                <div className="absolute bottom-0 right-0 w-56 bg-white rounded-xl shadow-xl p-4 transform hover:scale-105 transition-transform">
+                <div className="absolute bottom-0 right-0 w-56 bg-white rounded-xl shadow-xl p-4 transform hover:scale-105 transition-transform duration-300">
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
                       <span className="text-2xl">✓</span>
