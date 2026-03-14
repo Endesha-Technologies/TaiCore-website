@@ -59,7 +59,7 @@ export default function Hero() {
               className="inline-flex items-center gap-2 bg-primary/10 border border-primary/20 text-gray-900 text-xs font-bold px-4 py-1.5 rounded-full"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              Trusted by 500+ teams worldwide
+              Trusted by 5 companies
             </motion.div>
 
             {/* Animated heading */}
