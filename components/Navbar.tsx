@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
+import logo from "../app/images/logo.png";
 
 const navLinks = [
   { id: "home", label: "Home" },
@@ -59,11 +61,8 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 py-2.5 flex justify-between items-center">
         {/* Logo */}
-        <a href="#home" onClick={() => handleClick("home")} className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-            <span className="text-gray-900 font-extrabold text-xl">E</span>
-          </div>
-          <span className="text-xl font-extrabold text-gray-900 tracking-tight">Endesha</span>
+        <a href="#home" onClick={() => handleClick("home")} className="flex items-center">
+          <Image src={logo} alt="TaiCore Digital Systems" width={130} height={44} className="object-contain" />
         </a>
 
         {/* Desktop Links */}
@@ -87,12 +86,6 @@ export default function Navbar() {
               )}
             </a>
           ))}
-          <a
-            href="#contact"
-            className="bg-primary text-gray-900 px-5 py-2 rounded-lg font-bold transition-all duration-300 hover:-translate-y-0.5 transform text-sm"
-          >
-            Get Started
-          </a>
         </div>
 
         {/* Mobile Hamburger */}
@@ -145,13 +138,6 @@ export default function Navbar() {
                   {label}
                 </a>
               ))}
-              <a
-                href="#contact"
-                onClick={() => setMobileOpen(false)}
-                className="bg-primary text-gray-900 px-6 py-3 rounded-lg font-bold text-center mt-2 text-sm"
-              >
-                Get Started
-              </a>
             </div>
           </motion.div>
         )}

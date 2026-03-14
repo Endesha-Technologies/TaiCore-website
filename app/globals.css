@@ -4,8 +4,8 @@
   --color-bg-deep: #FDFDFD;
   --color-bg-alt: #F3F4F6;
   --color-surface: #FFFFFF;
-  --color-primary: #EAB308;
-  --color-primary-light: #FDE047;
+  --color-primary: #84CC16;
+  --color-primary-light: #BEF264;
   --color-text: #1F2937;
   --color-text-secondary: #4B5563;
   --color-text-muted: #9CA3AF;
@@ -28,7 +28,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 ::selection {
-  background: rgba(234, 179, 8, 0.3);
+  background: rgba(132, 204, 22, 0.3);
   color: #1F2937;
 }
 

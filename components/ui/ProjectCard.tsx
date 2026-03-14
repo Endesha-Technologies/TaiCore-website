@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import TechBadge from "./TechBadge";
 
 export interface Project {
   title: string;
@@ -181,19 +180,6 @@ export default function ProjectCard({
         <p className="text-xs text-gray-500 leading-relaxed">
           {project.description}
         </p>
-
-        {/* Tech Stack */}
-        <div className="flex flex-wrap gap-2">
-          {project.tech.map((t) => (
-            <TechBadge key={t} label={t} />
-          ))}
-        </div>
-
-        {/* Metric */}
-        <div className="flex items-center justify-between pt-3 mt-1 border-t border-gray-100">
-          <span className="text-gray-400 text-[10px] font-semibold uppercase tracking-wide">{project.metricLabel}</span>
-          <span className="text-primary font-extrabold text-base">{project.metric}</span>
-        </div>
       </div>
 
 
