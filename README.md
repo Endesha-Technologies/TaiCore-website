@@ -1,4 +1,4 @@
-# TaiCore Website
+# TaiCore Digital Services Website
 
 A modern, single-page website built with Next.js, React, and Tailwind CSS.
 

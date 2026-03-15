@@ -59,7 +59,7 @@ export default function About() {
           <AnimateOnScroll direction="left">
             <div className="space-y-6">
               <p className="text-lg text-gray-600 leading-relaxed">
-                TaiCore is a technology company focused on helping businesses build, launch, and scale modern digital solutions. We work with startups, entrepreneurs, and growing organizations to transform ideas into reliable software products that deliver real value.
+                TaiCore Digital Services is a technology company focused on helping businesses build, launch, and scale modern digital solutions. We work with startups, entrepreneurs, and growing organizations to transform ideas into reliable software products that deliver real value.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
                 Our expertise spans full-stack web development, mobile application development, cloud-based systems, and intelligent software integrations. From early prototypes to fully deployed platforms, we design and build technology that is secure, scalable, and built for long-term growth.
@@ -68,7 +68,7 @@ export default function About() {
                 At TaiCore, we believe that great technology is more than just code. It is about solving real problems, improving efficiency, and creating seamless digital experiences. Our team combines strong engineering practices with a practical understanding of business needs to deliver solutions that work in the real world.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
-                Whether it&apos;s building a new platform, modernizing an existing system, or integrating advanced technologies, TaiCore partners with clients to turn ideas into powerful digital products.
+                Whether it&apos;s building a new platform, modernizing an existing system, or integrating advanced technologies, TaiCore Digital Services partners with clients to turn ideas into powerful digital products.
               </p>
             </div>
           </AnimateOnScroll>
