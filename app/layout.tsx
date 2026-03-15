@@ -10,7 +10,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Endesha Technologies | Professional Software Engineering",
+  title: "TaiCore | Professional Software Engineering",
   description: "Full-stack web apps, mobile products, and AI integrations for modern companies.",
 };
 

@@ -107,7 +107,7 @@ export default function Hero() {
               className="text-gray-900 leading-relaxed max-w-lg font-medium"
               style={{ fontSize: "clamp(1rem, 1.5vw, 1.125rem)" }}
             >
-              Endesha delivers full-stack web apps, mobile products, and AI
+              TaiCore delivers full-stack web apps, mobile products, and AI
               integrations for companies moving fast. Professional, reliable,
               and beautifully designed.
             </motion.p>

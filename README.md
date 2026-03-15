@@ -1,4 +1,4 @@
-# Endesha Website
+# TaiCore Website
 
 A modern, single-page website built with Next.js, React, and Tailwind CSS.
 
@@ -56,7 +56,7 @@ npm start
 ## Project Structure
 
 ```
-endesha-website/
+taicore-website/
 ├── app/
 │   ├── layout.tsx
 │   ├── page.tsx
