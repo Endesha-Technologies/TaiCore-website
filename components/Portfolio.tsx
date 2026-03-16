@@ -17,21 +17,23 @@ interface Project {
 }
 
 const projects: Project[] = [
-  // Example with screenshot only
+  // School Management System
   {
-    title: "Project Name 1",
-    description: "Brief description of what this product does and the problem it solves.",
+    title: "Bishop Cipriano Kihangire School Management System",
+    description: "Comprehensive school management platform for Bishop Cipriano Kihangire Secondary School, featuring student information management, academic tracking, fee structure display, and parent testimonials. Streamlines school administration and enhances communication between school, students, and parents.",
     category: "Web App",
-    screenshot: "/screenshots/project1.png", // Add your screenshot path
-    tech: ["Next.js", "Node.js", "PostgreSQL"],
+    liveDemo: "https://schoolmanagementsystemgroupwork.netlify.app/",
+    screenshot: "/schoolmanagement.PNG",
+    tech: [],
   },
-  // Example with live demo link
+  // NIFE Transport Services
   {
-    title: "Project Name 2",
-    description: "Brief description of what this product does and the problem it solves.",
-    category: "Mobile",
-    liveDemo: "https://demo.example.com",
-    tech: ["React Native", "Firebase"],
+    title: "NIFE Transport Services LLC",
+    description: "Professional freight shipping and trucking platform offering comprehensive logistics solutions. Features real-time GPS tracking, diverse fleet management (flatbeds to reefers), and 24/7 customer support. Solves complex supply chain challenges with 98% on-time delivery, handling 28+ specialized freight types for businesses across North America.",
+    category: "Web App",
+    liveDemo: "https://nife-transport-services-virid.vercel.app/",
+    screenshot: "/nife.PNG",
+    tech: [],
   },
   // Add more projects here
 ];
@@ -124,17 +126,19 @@ export default function Portfolio() {
                     </p>
                   </div>
 
-                  {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                  {/* Tech Stack - Only show if tech array has items */}
+                  {project.tech.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                      {project.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className="px-2 py-1 bg-gray-100 text-gray-700 text-xs font-medium rounded"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  )}
 
                   {/* Live Demo Button */}
                   {project.liveDemo && (
