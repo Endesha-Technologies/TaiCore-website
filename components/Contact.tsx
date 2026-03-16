@@ -112,7 +112,7 @@ export default function Contact() {
 
           {/* Right - Form */}
           <AnimateOnScroll direction="right" className="lg:col-span-3">
-            {submitted ? (
+            {/* {submitted ? (
               <div className="bg-white p-12 rounded-2xl border border-gray-200 text-center">
                 <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -195,7 +195,7 @@ export default function Contact() {
                   </svg>
                 </button>
               </form>
-            )}
+            )} */}
           </AnimateOnScroll>
         </div>
       </div>
