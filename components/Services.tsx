@@ -43,6 +43,18 @@ const services = [
   },
   {
     number: "04",
+    title: "Cloud Hosting & Infrastructure",
+    description:
+      "Reliable hosting solutions with AWS, Azure, and Google Cloud. Scalable infrastructure, automated deployments, and 24/7 monitoring.",
+    featured: false,
+    icon: (
+      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.8} d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
+      </svg>
+    ),
+  },
+  {
+    number: "05",
     title: "Product Strategy & Design",
     description:
       "UI/UX design, product roadmapping, and technical architecture consulting to align tech with business goals.",
@@ -98,9 +110,14 @@ export default function Services() {
             <ServiceCard {...services[2]} delay={0.2} />
           </div>
 
-          {/* Card 04 - Wide card spans 2 cols in bottom row */}
-          <div className="lg:col-span-2">
+          {/* Card 04 */}
+          <div className="lg:col-span-1">
             <ServiceCard {...services[3]} delay={0.3} />
+          </div>
+
+          {/* Card 05 */}
+          <div className="lg:col-span-1">
+            <ServiceCard {...services[4]} delay={0.4} />
           </div>
         </div>
 
