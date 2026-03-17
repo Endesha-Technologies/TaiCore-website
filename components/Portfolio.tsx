@@ -60,14 +60,16 @@ export default function Portfolio() {
   const [selectedImageTitle, setSelectedImageTitle] = useState<string>("");
   const [imageIndex, setImageIndex] = useState<number>(0);
   const [totalImages, setTotalImages] = useState<number>(1);
+  const [projectImages, setProjectImages] = useState<string[]>([]);
   const [imageLoading, setImageLoading] = useState<boolean>(true);
 
-  const openImageModal = (imageSrc: string, title: string, index: number = 0, total: number = 1) => {
+  const openImageModal = (imageSrc: string, title: string, index: number = 0, total: number = 1, allImages: string[] = []) => {
+    setProjectImages(allImages.length > 0 ? allImages : [imageSrc]);
     setSelectedImage(imageSrc);
-    setSelectedImageTitle(title);
+    setSelectedImageTitle(title.replace(/ - Screenshot \d+/, '')); // Remove screenshot number from title
     setImageIndex(index);
     setTotalImages(total);
-    setImageLoading(true); // Start loading state
+    setImageLoading(true);
     // Prevent body scroll when modal is open
     document.body.style.overflow = 'hidden';
   };
@@ -77,9 +79,25 @@ export default function Portfolio() {
     setSelectedImageTitle("");
     setImageIndex(0);
     setTotalImages(1);
+    setProjectImages([]);
     setImageLoading(true);
     // Restore body scroll
     document.body.style.overflow = 'unset';
+  };
+
+  const navigateImage = (direction: 'prev' | 'next') => {
+    if (projectImages.length <= 1) return;
+    
+    let newIndex;
+    if (direction === 'next') {
+      newIndex = imageIndex + 1 >= projectImages.length ? 0 : imageIndex + 1;
+    } else {
+      newIndex = imageIndex - 1 < 0 ? projectImages.length - 1 : imageIndex - 1;
+    }
+    
+    setImageIndex(newIndex);
+    setSelectedImage(projectImages[newIndex]);
+    setImageLoading(true);
   };
 
   const handleImageLoad = () => {
@@ -115,6 +133,10 @@ export default function Portfolio() {
       if (selectedImage) {
         if (event.key === 'Escape') {
           closeImageModal();
+        } else if (event.key === 'ArrowLeft') {
+          navigateImage('prev');
+        } else if (event.key === 'ArrowRight') {
+          navigateImage('next');
         }
       }
     };
@@ -125,7 +147,7 @@ export default function Portfolio() {
       // Cleanup: restore scroll on unmount
       document.body.style.overflow = 'unset';
     };
-  }, [selectedImage]);
+  }, [selectedImage, imageIndex, projectImages]);
 
   const filtered =
     activeFilter === "All"
@@ -186,7 +208,7 @@ export default function Portfolio() {
                           <div 
                             key={index} 
                             className="relative flex-1 min-w-0 cursor-pointer group/image"
-                            onClick={() => openImageModal(img, `${project.title} - Screenshot ${index + 1}`, index, project.screenshot.length)}
+                            onClick={() => openImageModal(img, project.title, index, project.screenshot.length, project.screenshot)}
                           >
                             <Image
                               src={img}
@@ -215,7 +237,7 @@ export default function Portfolio() {
                       // Single screenshot
                       <div 
                         className="relative w-full h-full cursor-pointer group/image"
-                        onClick={() => openImageModal(project.screenshot as string, project.title, 0, 1)}
+                        onClick={() => openImageModal(project.screenshot as string, project.title, 0, 1, [project.screenshot as string])}
                       >
                         <Image
                           src={project.screenshot}
@@ -373,6 +395,33 @@ export default function Portfolio() {
                 className="relative max-w-[95vw] max-h-[85vh] w-full h-full mx-4 mt-20 mb-4"
                 onClick={(e) => e.stopPropagation()}
               >
+                {/* Navigation Arrows - Only show if multiple images */}
+                {totalImages > 1 && (
+                  <>
+                    {/* Previous Button */}
+                    <button
+                      onClick={() => navigateImage('prev')}
+                      className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 rounded-full bg-black/50 backdrop-blur-md border border-white/20 hover:bg-black/70 transition-all duration-300 text-white/90 hover:text-white"
+                      title="Previous image (←)"
+                    >
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                      </svg>
+                    </button>
+
+                    {/* Next Button */}
+                    <button
+                      onClick={() => navigateImage('next')}
+                      className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 rounded-full bg-black/50 backdrop-blur-md border border-white/20 hover:bg-black/70 transition-all duration-300 text-white/90 hover:text-white"
+                      title="Next image (→)"
+                    >
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
+                  </>
+                )}
+
                 {/* Image with proper loading state */}
                 <div className="relative w-full h-full bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
                   {/* Regular img tag for right-click functionality */}
