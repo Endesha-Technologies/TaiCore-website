@@ -337,16 +337,30 @@ export default function Portfolio() {
                     )}
                   </div>
 
-                  {/* Close Button */}
-                  <button
-                    onClick={closeImageModal}
-                    className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 text-white/90 hover:text-white"
-                    title="Close (Esc)"
-                  >
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  </button>
+                  {/* Header Actions */}
+                  <div className="flex items-center gap-3">
+                    {/* Download Button */}
+                    <button
+                      onClick={handleDownloadImage}
+                      className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 text-white/90 hover:text-white"
+                      title="Download image"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                    </button>
+
+                    {/* Close Button */}
+                    <button
+                      onClick={closeImageModal}
+                      className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 text-white/90 hover:text-white"
+                      title="Close (Esc)"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                  </div>
                 </div>
               </div>
 
@@ -382,35 +396,6 @@ export default function Portfolio() {
                   )}
                 </div>
 
-                {/* Image Actions */}
-                <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-                  <div className="flex items-center gap-4 bg-black/50 backdrop-blur-md rounded-full px-6 py-3 border border-white/20">
-                    {/* Download Button */}
-                    <button
-                      onClick={handleDownloadImage}
-                      className="flex items-center gap-2 text-white/90 hover:text-white transition-colors group"
-                      title="Download image"
-                    >
-                      <div className="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 group-hover:bg-white/20 transition-all duration-300">
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                        </svg>
-                      </div>
-                      <span className="text-sm font-medium">Download</span>
-                    </button>
-
-                    {/* Divider */}
-                    <div className="w-px h-4 bg-white/20"></div>
-
-                    {/* Instructions */}
-                    <div className="flex items-center gap-2 text-white/70 text-sm">
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                      <span>Right-click to save • Press Esc to close</span>
-                    </div>
-                  </div>
-                </div>
               </motion.div>
 
               {/* Background click area */}
