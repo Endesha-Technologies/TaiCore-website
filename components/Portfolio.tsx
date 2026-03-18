@@ -53,6 +53,14 @@ const projects: Project[] = [
     screenshot: "/inventory.jpeg",
     tech: [],
   },
+  // SAR Brands Mobile Application
+  {
+    title: "SAR Brands Mobile Application",
+    description: "An e-commerce platform designed to facilitate the online sale of pharmaceuticals, detergents, and other consumer products. Provides a seamless and user-friendly experience, enabling customers to conveniently browse, order, and make payments for products directly from their mobile devices.",
+    category: "Mobile",
+    screenshot: ["/sar.jpeg", "/sar2.jpeg"],
+    tech: [],
+  },
 ];
 
 export default function Portfolio() {
@@ -63,6 +71,10 @@ export default function Portfolio() {
   const [totalImages, setTotalImages] = useState<number>(1);
   const [projectImages, setProjectImages] = useState<string[]>([]);
   const [imageLoading, setImageLoading] = useState<boolean>(true);
+  const [zoomLevel, setZoomLevel] = useState<number>(1);
+  const [panPosition, setPanPosition] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState<boolean>(false);
+  const [dragStart, setDragStart] = useState<{ x: number; y: number }>({ x: 0, y: 0 });
 
   const openImageModal = (imageSrc: string, title: string, index: number = 0, total: number = 1, allImages: string[] = []) => {
     setProjectImages(allImages.length > 0 ? allImages : [imageSrc]);
@@ -82,8 +94,47 @@ export default function Portfolio() {
     setTotalImages(1);
     setProjectImages([]);
     setImageLoading(true);
+    setZoomLevel(1);
+    setPanPosition({ x: 0, y: 0 });
+    setIsDragging(false);
     // Restore body scroll
     document.body.style.overflow = 'unset';
+  };
+
+  const handleZoom = (delta: number) => {
+    setZoomLevel(prev => {
+      const newZoom = Math.max(0.5, Math.min(5, prev + delta));
+      if (newZoom === 1) {
+        setPanPosition({ x: 0, y: 0 });
+      }
+      return newZoom;
+    });
+  };
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    if (zoomLevel > 1) {
+      setIsDragging(true);
+      setDragStart({ x: e.clientX - panPosition.x, y: e.clientY - panPosition.y });
+    }
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (isDragging && zoomLevel > 1) {
+      setPanPosition({
+        x: e.clientX - dragStart.x,
+        y: e.clientY - dragStart.y
+      });
+    }
+  };
+
+  const handleMouseUp = () => {
+    setIsDragging(false);
+  };
+
+  const handleWheel = (e: React.WheelEvent) => {
+    e.preventDefault();
+    const delta = e.deltaY > 0 ? -0.2 : 0.2;
+    handleZoom(delta);
   };
 
   const navigateImage = (direction: 'prev' | 'next') => {
@@ -99,6 +150,8 @@ export default function Portfolio() {
     setImageIndex(newIndex);
     setSelectedImage(projectImages[newIndex]);
     setImageLoading(true);
+    setZoomLevel(1);
+    setPanPosition({ x: 0, y: 0 });
   };
 
   const handleImageLoad = () => {
@@ -197,7 +250,7 @@ export default function Portfolio() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ duration: 0.3, delay: i * 0.08 }}
-                className="bg-white rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow duration-300 group"
+                className="bg-gray-50 rounded-2xl overflow-hidden border border-gray-200 hover:shadow-xl transition-shadow duration-300 group"
               >
                 {/* Screenshot or Placeholder */}
                 <div className="relative h-56 bg-gray-100 overflow-hidden">
@@ -362,6 +415,56 @@ export default function Portfolio() {
 
                   {/* Header Actions */}
                   <div className="flex items-center gap-3">
+                    {/* Zoom Out Button */}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleZoom(-0.2);
+                      }}
+                      disabled={zoomLevel <= 0.5}
+                      className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 text-white/90 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                      title="Zoom out"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM13 10H7" />
+                      </svg>
+                    </button>
+
+                    {/* Zoom Level Display */}
+                    <div className="text-white/70 text-sm font-medium min-w-[50px] text-center">
+                      {Math.round(zoomLevel * 100)}%
+                    </div>
+
+                    {/* Zoom In Button */}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleZoom(0.2);
+                      }}
+                      disabled={zoomLevel >= 5}
+                      className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 text-white/90 hover:text-white disabled:opacity-50 disabled:cursor-not-allowed"
+                      title="Zoom in"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
+                      </svg>
+                    </button>
+
+                    {/* Reset Zoom Button */}
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setZoomLevel(1);
+                        setPanPosition({ x: 0, y: 0 });
+                      }}
+                      className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 text-white/90 hover:text-white"
+                      title="Reset zoom"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                      </svg>
+                    </button>
+
                     {/* Download Button */}
                     <button
                       onClick={handleDownloadImage}
@@ -375,7 +478,10 @@ export default function Portfolio() {
 
                     {/* Close Button */}
                     <button
-                      onClick={closeImageModal}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        closeImageModal();
+                      }}
                       className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 text-white/90 hover:text-white"
                       title="Close (Esc)"
                     >
@@ -401,7 +507,10 @@ export default function Portfolio() {
                   <>
                     {/* Previous Button */}
                     <button
-                      onClick={() => navigateImage('prev')}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        navigateImage('prev');
+                      }}
                       className="absolute left-4 top-1/2 transform -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 rounded-full bg-black/50 backdrop-blur-md border border-white/20 hover:bg-black/70 transition-all duration-300 text-white/90 hover:text-white"
                       title="Previous image (←)"
                     >
@@ -412,7 +521,10 @@ export default function Portfolio() {
 
                     {/* Next Button */}
                     <button
-                      onClick={() => navigateImage('next')}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        navigateImage('next');
+                      }}
                       className="absolute right-4 top-1/2 transform -translate-y-1/2 z-10 flex items-center justify-center w-12 h-12 rounded-full bg-black/50 backdrop-blur-md border border-white/20 hover:bg-black/70 transition-all duration-300 text-white/90 hover:text-white"
                       title="Next image (→)"
                     >
@@ -424,15 +536,28 @@ export default function Portfolio() {
                 )}
 
                 {/* Image with proper loading state */}
-                <div className="relative w-full h-full bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+                <div 
+                  className="relative w-full h-full bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
+                  onWheel={handleWheel}
+                  onMouseDown={handleMouseDown}
+                  onMouseMove={handleMouseMove}
+                  onMouseUp={handleMouseUp}
+                  onMouseLeave={handleMouseUp}
+                  style={{ cursor: zoomLevel > 1 ? (isDragging ? 'grabbing' : 'grab') : 'default' }}
+                >
                   {/* Regular img tag for right-click functionality */}
                   <img
                     src={selectedImage}
                     alt={selectedImageTitle}
-                    className="w-full h-full object-contain"
+                    className="w-full h-full object-contain transition-transform duration-200"
                     onLoad={handleImageLoad}
                     onError={handleImageError}
-                    style={{ maxWidth: '100%', maxHeight: '100%' }}
+                    style={{ 
+                      transform: `scale(${zoomLevel}) translate(${panPosition.x / zoomLevel}px, ${panPosition.y / zoomLevel}px)`,
+                      maxWidth: 'none',
+                      maxHeight: 'none'
+                    }}
+                    draggable={false}
                   />
                   
                   {/* Loading overlay - only show when loading */}
