@@ -208,7 +208,7 @@ export default function Portfolio() {
                           <div 
                             key={index} 
                             className="relative flex-1 min-w-0 cursor-pointer group/image"
-                            onClick={() => openImageModal(img, project.title, index, project.screenshot.length, project.screenshot)}
+                            onClick={() => openImageModal(img, project.title, index, project.screenshot?.length || 1, Array.isArray(project.screenshot) ? project.screenshot : [img])}
                           >
                             <Image
                               src={img}
@@ -217,9 +217,9 @@ export default function Portfolio() {
                               className="object-cover group-hover:scale-105 transition-transform duration-300"
                             />
                             {/* Screenshot indicator */}
-                            {project.screenshot.length > 1 && (
+                            {(project.screenshot?.length || 0) > 1 && (
                               <div className="absolute bottom-2 right-2 bg-black/50 text-white text-xs px-2 py-1 rounded">
-                                {index + 1}/{project.screenshot.length}
+                                {index + 1}/{project.screenshot?.length || 1}
                               </div>
                             )}
                             {/* Click to zoom indicator */}

@@ -47,7 +47,7 @@ const valueProps = [
 
 export default function About() {
   return (
-    <section id="about" className="py-20 px-6 bg-gray-50">
+    <section id="about" className="py-20 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <SectionHeading
           title="About Us"

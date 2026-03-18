@@ -29,7 +29,7 @@ export default function Contact() {
     "w-full px-4 py-3 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-400 focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary/30 transition-colors";
 
   return (
-    <section id="contact" className="py-20 px-6 bg-gray-50">
+    <section id="contact" className="py-20 px-6 bg-white">
       <div className="max-w-6xl mx-auto">
         <SectionHeading
           title="Let's Build Something Great"
@@ -58,7 +58,7 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-text-muted text-sm">Email</div>
+                  <div className="text-gray-500 text-sm">Email</div>
                   <div className="text-gray-900 font-medium">hello@taicore.io</div>
                 </div>
               </div>
@@ -71,7 +71,7 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-text-muted text-sm">Location</div>
+                  <div className="text-gray-500 text-sm">Location</div>
                   <div className="text-gray-900 font-medium">Nairobi, Kenya</div>
                 </div>
               </div>
@@ -83,7 +83,7 @@ export default function Contact() {
                   </svg>
                 </div>
                 <div>
-                  <div className="text-text-muted text-sm">Response time</div>
+                  <div className="text-gray-500 text-sm">Response time</div>
                   <div className="text-gray-900 font-medium">Within 24 hours</div>
                 </div>
               </div>
@@ -99,7 +99,7 @@ export default function Contact() {
                   key={social.label}
                   href="#"
                   aria-label={social.label}
-                  className="w-10 h-10 bg-white/5 border border-gray-200 rounded-lg flex items-center justify-center hover:bg-primary/20 hover:border-primary/30 transition-colors"
+                  className="w-10 h-10 bg-gray-50 border border-gray-200 rounded-lg flex items-center justify-center hover:bg-primary/20 hover:border-primary/30 transition-colors"
                 >
                   <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={social.path} />
