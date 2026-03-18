@@ -546,28 +546,39 @@ export default function Portfolio() {
 
                 {/* Image with proper loading state */}
                 <div 
-                  className="relative w-full h-full bg-white/5 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/10 shadow-2xl"
+                  className="image-modal-container relative w-full h-full bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 shadow-2xl overflow-auto"
                   onWheel={handleWheel}
-                  onMouseDown={handleMouseDown}
-                  onMouseMove={handleMouseMove}
-                  onMouseUp={handleMouseUp}
-                  onMouseLeave={handleMouseUp}
-                  style={{ cursor: zoomLevel > 1 ? (isDragging ? 'grabbing' : 'grab') : 'default' }}
+                  style={{ 
+                    cursor: zoomLevel > 1 ? (isDragging ? 'grabbing' : 'grab') : 'default'
+                  }}
                 >
-                  {/* Regular img tag for right-click functionality */}
-                  <img
-                    src={selectedImage}
-                    alt={selectedImageTitle}
-                    className="w-full h-full object-contain transition-transform duration-200"
-                    onLoad={handleImageLoad}
-                    onError={handleImageError}
-                    style={{ 
-                      transform: `scale(${zoomLevel}) translate(${panPosition.x / zoomLevel}px, ${panPosition.y / zoomLevel}px)`,
-                      maxWidth: 'none',
-                      maxHeight: 'none'
+                  {/* Scrollable container for zoomed image */}
+                  <div
+                    className="min-w-full min-h-full flex items-center justify-center"
+                    style={{
+                      width: zoomLevel > 1 ? `${zoomLevel * 100}%` : '100%',
+                      height: zoomLevel > 1 ? `${zoomLevel * 100}%` : '100%'
                     }}
-                    draggable={false}
-                  />
+                    onMouseDown={handleMouseDown}
+                    onMouseMove={handleMouseMove}
+                    onMouseUp={handleMouseUp}
+                    onMouseLeave={handleMouseUp}
+                  >
+                    {/* Regular img tag for right-click functionality */}
+                    <img
+                      src={selectedImage}
+                      alt={selectedImageTitle}
+                      className="w-full h-full object-contain transition-transform duration-200"
+                      onLoad={handleImageLoad}
+                      onError={handleImageError}
+                      style={{ 
+                        transform: `translate(${panPosition.x / zoomLevel}px, ${panPosition.y / zoomLevel}px)`,
+                        maxWidth: 'none',
+                        maxHeight: 'none'
+                      }}
+                      draggable={false}
+                    />
+                  </div>
                   
                   {/* Loading overlay - only show when loading */}
                   {imageLoading && (
