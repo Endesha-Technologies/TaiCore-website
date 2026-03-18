@@ -162,7 +162,12 @@ export default function Portfolio() {
     setImageLoading(false);
   };
 
-  const handleDownloadImage = async () => {
+  const handleDownloadImage = async (e?: React.MouseEvent) => {
+    if (e) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    
     if (!selectedImage) return;
     
     try {
@@ -172,6 +177,7 @@ export default function Portfolio() {
       const link = document.createElement('a');
       link.href = url;
       link.download = `${selectedImageTitle.replace(/[^a-z0-9]/gi, '_').toLowerCase()}.jpg`;
+      link.style.display = 'none';
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
@@ -467,7 +473,10 @@ export default function Portfolio() {
 
                     {/* Download Button */}
                     <button
-                      onClick={handleDownloadImage}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleDownloadImage(e);
+                      }}
                       className="flex items-center justify-center w-10 h-10 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 hover:bg-white/20 transition-all duration-300 text-white/90 hover:text-white"
                       title="Download image"
                     >
