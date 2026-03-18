@@ -32,7 +32,7 @@ const projects: Project[] = [
     title: "NIFE Transport Services LLC",
     description: "Professional freight shipping and trucking platform offering comprehensive logistics solutions. Features real-time GPS tracking, diverse fleet management (flatbeds to reefers), and 24/7 customer support. Solves complex supply chain challenges with 98% on-time delivery, handling 28+ specialized freight types for businesses across North America.",
     category: "Web App",
-    liveDemo: "https://nife-transport-services-virid.vercel.app/",
+    liveDemo: "https://www.nifetransport.com/",
     screenshot: "/nife.PNG",
     tech: [],
   },

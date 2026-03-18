@@ -147,7 +147,7 @@ export default function Hero() {
               className="flex items-center gap-8 flex-wrap pt-2"
             >
               {[
-                { value: "10+", label: "Products Shipped" },
+                { value: "5+", label: "Products Shipped" },
                 { value: "98%", label: "Client Retention" },
                 { value: "8 Wks", label: "Avg MVP Delivery" },
               ].map((stat) => (
