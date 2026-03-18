@@ -47,8 +47,9 @@ const projects: Project[] = [
   // Inventory Management System
   {
     title: "Inventory Management System",
-    description: "A straightforward inventory management solution built for small to medium-sized stores. Designed to simplify stock tracking, reduce manual errors, and keep business owners in control of their inventory with ease.",
+    description: "A straightforward inventory management solution built for small to medium-sized stores. Designed to simplify stock tracking, reduce manual errors, and keep business owners in control of their inventory with ease. Use the email and password provided on the login dashboard to access the demo.",
     category: "Web App",
+    liveDemo: "https://ug-inventory.netlify.app/",
     screenshot: "/inventory.jpeg",
     tech: [],
   },
