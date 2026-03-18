@@ -36,9 +36,9 @@ export default function Contact() {
           subtitle="Tell us about your project and we'll get back to you within 24 hours."
         />
 
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-          {/* Left - Contact Info */}
-          <AnimateOnScroll direction="left" className="lg:col-span-2 space-y-8">
+        <div className="grid grid-cols-1 lg:grid-cols-1 gap-12">
+          {/* Contact Info */}
+          <AnimateOnScroll direction="left" className="space-y-8">
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
                 Get in touch
@@ -107,94 +107,6 @@ export default function Contact() {
                 </a>
               ))}
             </div>
-          </AnimateOnScroll>
-
-          {/* Right - Form */}
-          <AnimateOnScroll direction="right" className="lg:col-span-3">
-            {/* {submitted ? (
-              <div className="bg-white p-12 rounded-2xl border border-gray-200 text-center">
-                <div className="w-16 h-16 bg-primary/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <svg className="w-8 h-8 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                  Message Sent!
-                </h3>
-                <p className="text-gray-600">
-                  Thank you for reaching out. We&apos;ll get back to you within 24
-                  hours.
-                </p>
-              </div>
-            ) : (
-              <form
-                onSubmit={handleSubmit}
-                className="bg-white p-8 rounded-2xl border border-gray-200 space-y-5"
-              >
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Your Name"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    className={inputClasses}
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="Email Address"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className={inputClasses}
-                  />
-                </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <input
-                    type="text"
-                    name="company"
-                    placeholder="Company (optional)"
-                    value={formData.company}
-                    onChange={handleChange}
-                    className={inputClasses}
-                  />
-                  <select
-                    name="budget"
-                    value={formData.budget}
-                    onChange={handleChange}
-                    className={`${inputClasses} ${!formData.budget ? "text-text-muted" : ""}`}
-                  >
-                    <option value="" disabled>
-                      Budget Range
-                    </option>
-                    <option value="<10k">&lt; $10,000</option>
-                    <option value="10k-50k">$10,000 – $50,000</option>
-                    <option value="50k-100k">$50,000 – $100,000</option>
-                    <option value="100k+">$100,000+</option>
-                  </select>
-                </div>
-                <textarea
-                  name="message"
-                  placeholder="Tell us about your project..."
-                  required
-                  rows={5}
-                  value={formData.message}
-                  onChange={handleChange}
-                  className={inputClasses}
-                />
-                <button
-                  type="submit"
-                  className="w-full bg-primary text-gray-900 py-4 rounded-xl font-semibold hover:bg-yellow-400 hover:scale-[1.01] transform transition-all duration-300 flex items-center justify-center gap-2"
-                >
-                  Send Message
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                  </svg>
-                </button>
-              </form>
-            )} */}
           </AnimateOnScroll>
         </div>
       </div>
