@@ -117,7 +117,7 @@ export default function Footer() {
               </li>
               <li>
                 <div className="text-gray-500 text-[10px] uppercase tracking-widest mb-1">Location</div>
-                <span className="text-gray-700 text-sm">Nairobi, Kenya</span>
+                <span className="text-gray-700 text-sm">3733 Freedom Dr<br />Charlotte, NC 28208</span>
               </li>
               <li>
                 <div className="text-gray-500 text-[10px] uppercase tracking-widest mb-1">Hours</div>

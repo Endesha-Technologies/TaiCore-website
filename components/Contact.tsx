@@ -72,7 +72,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <div className="text-gray-500 text-sm">Location</div>
-                  <div className="text-gray-900 font-medium">Nairobi, Kenya</div>
+                  <div className="text-gray-900 font-medium">3733 Freedom Dr<br />Charlotte, NC 28208</div>
                 </div>
               </div>
 
